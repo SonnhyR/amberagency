@@ -1,0 +1,136 @@
+<div class="app-detail-page">
+  <!-- Content when app is found -->
+  @if (appData) {
+    <section class="app-hero">
+      <div class="container">
+        <h1 class="app-title">{{ appData.name }}</h1>
+        <p class="app-description">{{ appData.description }}</p>
+        
+        <div class="app-os">
+          <span class="os-label">Disponible en:</span>
+          @if (appData.os.includes('ios')) {
+            <span class="os-icon">🍎 iOS</span>
+          }
+          @if (appData.os.includes('android')) {
+            <span class="os-icon">🤖 Android</span>
+          }
+        </div>
+      </div>
+    </section>
+
+    <hr class="gold-divider">
+
+    <section class="app-content">
+      <div class="container">
+        <div class="app-grid">
+          
+          <div class="info-card">
+            <div class="card-header">
+              <span class="card-icon">📋</span>
+              <h3 class="card-title">Requisitos</h3>
+            </div>
+            <ul class="info-list">
+              @for (req of appData.requirements; track req) {
+                <li>{{ req }}</li>
+              }
+            </ul>
+          </div>
+
+          <!-- <div class="info-card highlight-card">
+            <div class="card-header">
+              <span class="card-icon">💰</span>
+              <h3 class="card-title">Ganancias</h3>
+            </div>
+            <div class="earnings-display">
+              <span class="earnings-value">{{ appData.earnings }}</span>
+            </div>
+          </div> -->
+
+          <div class="info-card">
+            <div class="card-header">
+              <span class="card-icon">👥</span>
+              <h3 class="card-title">Flujo de usuarios</h3>
+            </div>
+            <ul class="info-list">
+              @for (flow of appData.userFlow; track flow) {
+                <li>{{ flow }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <div class="card-header">
+              <span class="card-icon">🏦</span>
+              <h3 class="card-title">Métodos de retiro</h3>
+            </div>
+            <ul class="info-list">
+              @for (method of appData.withdrawalMethods; track method) {
+                <li>{{ method }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <div class="card-header">
+              <span class="card-icon">⏳</span>
+              <h3 class="card-title">Temporalidad de pagos</h3>
+            </div>
+            <ul class="info-list">
+              @for (timing of appData.paymentTiming; track timing) {
+                <li>{{ timing }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <div class="card-header">
+              <span class="card-icon">📅</span>
+              <h3 class="card-title">Cortes (Diario y Semanal)</h3>
+            </div>
+            <ul class="info-list">
+              @for (cutoff of appData.cutoffs; track cutoff) {
+                <li>{{ cutoff }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <div class="card-header">
+              <span class="card-icon">🎁</span>
+              <h3 class="card-title">Beneficios Totales</h3>
+            </div>
+            <ul class="info-list">
+              @for (benefit of appData.benefits; track benefit) {
+                <li>{{ benefit }}</li>
+              }
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="app-actions">
+          @if (appData.id !== 'livchat') {
+            <a href="{{ appData.accountCreationLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+              <span class="btn-icon">📄</span> Cómo crear mi cuenta
+            </a>
+            <a href="{{ appData.tutorialLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+              <span class="btn-icon">📱</span> Cómo usar la app
+            </a>
+          }
+          <a href="{{ appData.entryLink }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            <span class="btn-icon">✨</span> Quiero ingresar
+          </a>
+        </div>
+
+      </div>
+    </section>
+  } @else {
+    <section class="app-not-found">
+      <div class="container">
+        <h1 class="app-title">Aplicación no encontrada</h1>
+        <p class="app-description">La aplicación que buscas no está disponible o no existe.</p>
+        <a routerLink="/" class="btn btn-outline">Volver al inicio</a>
+      </div>
+    </section>
+  }
+</div>

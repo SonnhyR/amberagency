@@ -1,0 +1,38 @@
+<header [class.scrolled]="isScrolled()">
+  <div class="header-container">
+    <div class="logo">
+      <img src="amber2.png" alt="AMBER Agency" class="brand-logo">
+    </div>
+
+    <nav class="nav-links">
+      <ul>
+        <li><a routerLink="/">Inicio</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Apps <span class="arrow">▼</span></a>
+          <div class="dropdown-content">
+            <a routerLink="/apps/hily">Hily</a>
+            <a routerLink="/apps/meyo">Meyo</a>
+            <a routerLink="/apps/welive">Welive</a>
+            <a routerLink="/apps/livchat">Livchat</a>
+          </div>
+        </li>
+        <li><a routerLink="/unete">Quiero ingresar</a></li>
+        <li><a routerLink="/guias">Guías</a></li>
+        <li><a routerLink="/faq">FAQ</a></li>
+        <li><a routerLink="/agente">Agent</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Contacto <span class="arrow">▼</span></a>
+          <div class="dropdown-content">
+            <a href="https://www.instagram.com/amber.agencia" target="_blank">📸 Instagram</a>
+            <a href="https://www.youtube.com/@zyeagency" target="_blank">▶️ YouTube</a>
+            <a href="https://wa.me/4242310658" target="_blank">💬 WhatsApp</a>
+            <a href="https://t.me/amberagencia" target="_blank">✈️ Telegram</a>
+            <a href="mailto:soporte.zye@gmail.com" target="_blank">📧 Correo</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu Button could go here -->
+  </div>
+</header>

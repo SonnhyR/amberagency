@@ -1,0 +1,172 @@
+.guias-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.guias-hero {
+  text-align: center;
+  padding: 60px 0 40px;
+
+  .guias-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    
+    .glow-text {
+      text-shadow: 0 0 20px var(--amber-gold-glow-strong);
+    }
+  }
+
+  .guias-subtitle {
+    font-size: 1.2rem;
+    color: var(--amber-text-dim);
+  }
+}
+
+.guias-coming-soon {
+  padding: 60px 0;
+
+  .coming-soon-box {
+    background: rgba(255, 184, 0, 0.08);
+    border: 1px solid rgba(255, 184, 0, 0.35);
+    border-radius: 24px;
+    padding: 40px 35px;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .coming-soon-icon {
+    font-size: 3rem;
+    margin-bottom: 18px;
+  }
+
+  .coming-soon-box h2 {
+    color: var(--amber-text-light);
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+
+  .coming-soon-box p {
+    color: var(--amber-text-dim);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+}
+
+.guias-content {
+  padding: 80px 0 100px;
+
+  &.hidden {
+    display: none !important;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  .guide-card {
+    background-color: var(--amber-black);
+    border: 1px solid var(--amber-gold);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: left; /* Changed to left to match app-detail, or wait, user didn't say, I'll keep text-align: left to look premium */
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(255, 184, 0, 0.15), transparent 70%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-15px);
+      border-color: var(--amber-gold-light);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 30px var(--amber-gold-glow-strong);
+      
+      &::before {
+        opacity: 0.8;
+      }
+      
+      .guide-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+
+    .guide-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px rgba(255, 184, 0, 0.3));
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .guide-title {
+      font-size: 1.5rem;
+      color: var(--amber-text-light);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .guide-text {
+      color: var(--amber-text-dim);
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    .yt-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--amber-gold);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      padding: 10px 20px;
+      border: 1px solid rgba(255, 184, 0, 0.3);
+      border-radius: 30px;
+
+      .play-icon {
+        margin-left: 8px;
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        background-color: rgba(255, 184, 0, 0.1);
+        color: var(--amber-gold-light);
+        text-shadow: 0 0 8px var(--amber-gold-glow-strong);
+        border-color: var(--amber-gold);
+        
+        .play-icon {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .guias-hero .guias-title {
+    font-size: 2.5rem;
+  }
+}

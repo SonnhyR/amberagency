@@ -1,0 +1,207 @@
+.app-detail-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-hero {
+  text-align: center;
+  padding: 60px 0 40px;
+
+  .app-title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--amber-gold);
+    text-shadow: 0 0 20px var(--amber-gold-glow-strong);
+    letter-spacing: 2px;
+  }
+
+  .app-description {
+    font-size: 1.2rem;
+    color: var(--amber-text-dim);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+
+  .app-os {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
+    .os-label {
+      color: var(--amber-text-dim);
+      font-weight: 600;
+    }
+
+    .os-icon {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 184, 0, 0.2);
+      color: var(--amber-text-light);
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.app-content {
+  padding: 80px 0 100px;
+
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .info-card {
+    background-color: var(--amber-black);
+    border: 1px solid var(--amber-gold);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(255, 184, 0, 0.15), transparent 70%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-15px);
+      border-color: var(--amber-gold-light);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 30px var(--amber-gold-glow-strong);
+      
+      &::before {
+        opacity: 0.8;
+      }
+      
+      .card-header .card-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+
+    &.highlight-card {
+      background: linear-gradient(145deg, var(--amber-black-soft), var(--amber-black));
+      border: 1px solid var(--amber-gold);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at top right, var(--amber-gold-glow-strong), transparent 60%);
+        pointer-events: none;
+      }
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+
+      .card-icon {
+        font-size: 2rem;
+        filter: drop-shadow(0 0 10px rgba(255, 184, 0, 0.4));
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        color: var(--amber-gold-light);
+      }
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        color: var(--amber-text-light);
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+        line-height: 1.5;
+
+        &::before {
+          content: '✦';
+          position: absolute;
+          left: 0;
+          color: var(--amber-gold);
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .earnings-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+
+      .earnings-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--amber-gold);
+        text-shadow: 0 0 15px var(--amber-gold-glow-strong);
+      }
+    }
+  }
+
+  .app-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+
+    .btn {
+      min-width: 250px;
+    }
+  }
+}
+
+.app-not-found {
+  text-align: center;
+  padding: 100px 0;
+
+  .app-title {
+    color: var(--amber-error);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-hero .app-title {
+    font-size: 3rem;
+  }
+  
+  .app-actions {
+    flex-direction: column;
+    align-items: center;
+    
+    .btn {
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.footer {
+  background-color: var(--amber-black);
+  padding: 80px 0 20px;
+  border-top: 1px solid rgba(255, 184, 0, 0.1);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand {
+    .logo {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .brand-desc {
+      color: var(--amber-text-dim);
+      line-height: 1.6;
+      margin-bottom: 25px;
+      max-width: 400px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: var(--amber-black-light);
+        color: var(--amber-gold);
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+
+        &:hover {
+          background-color: var(--amber-gold);
+          color: var(--amber-black);
+          box-shadow: 0 0 15px var(--amber-gold-glow);
+        }
+      }
+    }
+  }
+
+  .footer-title {
+    color: var(--amber-beige-light);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: var(--amber-gold);
+    }
+  }
+
+  .footer-links ul,
+  .footer-contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    li,
+    a {
+      color: var(--amber-text-dim);
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--amber-gold);
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 184, 0, 0.05);
+    color: var(--amber-text-muted);
+    font-size: 0.9rem;
+
+    .footer-legal {
+      margin-bottom: 10px;
+
+      a {
+        color: var(--amber-text-muted);
+        transition: color 0.3s ease;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--amber-gold);
+        }
+      }
+
+      span {
+        color: var(--amber-text-muted);
+        margin: 0 5px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}

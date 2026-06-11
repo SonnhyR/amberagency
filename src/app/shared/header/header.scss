@@ -1,0 +1,174 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+
+  &.scrolled {
+    background-color: var(--amber-black-fade);
+    padding: 10px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 184, 0, 0.1);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    a {
+      display: flex;
+      align-items: center;
+    }
+    .brand-logo {
+      height: 40px; /* Ajusta este valor según el tamaño real de tu logo */
+      width: auto;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 10px var(--amber-gold-glow-strong));
+      }
+    }
+  }
+
+  .nav-links {
+    ul {
+      display: flex;
+      gap: 35px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+
+      li {
+        position: relative;
+        
+        a {
+          font-size: 0.95rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          position: relative;
+          padding: 8px 0;
+          transition: all 0.3s ease;
+          color: var(--amber-text-light);
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0%;
+            height: 2px;
+            background-color: var(--amber-gold);
+            transition: width 0.3s ease, box-shadow 0.3s ease;
+          }
+
+          &:hover, &:focus {
+            color: var(--amber-gold);
+            text-shadow: 0 0 10px var(--amber-gold-glow-strong), 0 0 20px var(--amber-gold-glow);
+            
+            &::after {
+              width: 100%;
+              box-shadow: 0 0 10px var(--amber-gold), 0 0 20px var(--amber-gold);
+            }
+          }
+        }
+
+        /* Dropdown Styles */
+        &.dropdown {
+          &:hover {
+            .dropdown-content {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+            .arrow {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        .dropdown-content {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(15px);
+          background-color: var(--amber-black-soft);
+          min-width: 180px;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 184, 0, 0.2);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px var(--amber-gold-glow);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 1001;
+          padding: 10px 0;
+          overflow: hidden;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background-color: var(--amber-black-soft);
+            border-top: 1px solid rgba(255, 184, 0, 0.2);
+            border-left: 1px solid rgba(255, 184, 0, 0.2);
+          }
+
+          a {
+            color: var(--amber-text-light);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            text-shadow: none;
+
+            &::after {
+              display: none;
+            }
+
+            &:hover {
+              background-color: rgba(255, 184, 0, 0.1);
+              color: var(--amber-gold);
+              padding-left: 25px; /* Subtle indent effect */
+              text-shadow: 0 0 8px var(--amber-gold-glow);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; // Would need a hamburger menu implementation for full mobile support
+    }
+  }
+}
